@@ -27,34 +27,41 @@ var GitSeen = (function(){
 				return false;
 			}
 			this.el = document.createElement('div');
-			var repos = document.createElement('span');
-			repos.appendChild( document.createTextNode(' Repos '))
+			this.el.className = 'git_seen';
+			var container = document.createElement('div');
+			var heading = document.createElement('h5');
+			heading.appendChild( document.createTextNode('GitHub - Social coding') );
+			container.appendChild(heading);
 			var indicator = document.createElement('a');
-			indicator.className = 'indicator';
+			indicator.className = 'repos';
 			indicator.href = 'http://github.com/' + this.user_id;
 			indicator.title = this.user_id + ' on GitHub';
 			indicator.onclick = externalLink;
 			var count = document.createElement('strong');
 			count.appendChild( document.createTextNode(this.json.repositories.length) );
+			var repos = document.createElement('span');
+			repos.appendChild( document.createTextNode(' Repos '));
 			indicator.appendChild(count);
 			indicator.appendChild(repos);
-			this.el.appendChild(indicator);
-			for(var r, p, a, s, t, d, i = 0, l = this.json.repositories.length; i < l; i++ ){
+			container.appendChild(indicator);
+			this.el.appendChild(container);
+			for(var r, p, a, s, n, t, d, i = 0, l = this.json.repositories.length; i < l; i++ ){
 				r = this.json.repositories[i];
 				if(r.private) continue;
 				p = document.createElement('p');
 				p.style.display = i ? 'none' : 'block';
 				p.className = i ? '' : 'current';
 				a = document.createElement('a');
+				n = document.createElement('span');
+				n.appendChild( document.createTextNode(i) );
 				s = document.createElement('strong');
 				t = document.createTextNode(r.name);
-				d = document.createTextNode(r.description.length > 50 ? r.description.substr(0,47) + '...' : r.description);
 				a.title = r.description;
 				a.href = r.url;
 				a.onclick = externalLink;
 				s.appendChild(t);
+				a.appendChild(n);
 				a.appendChild(s);
-				a.appendChild(d);
 				p.appendChild(a);
 				this.el.appendChild(p);
 				this.els.push(p);
