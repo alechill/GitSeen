@@ -1,0 +1,38 @@
+/* GitSeen styles */
+
+.git_seen { border:2px solid #cccccc; font-family:helvetica,arial,sans-serif; font-size:12px; height:96px; min-width:200px; background: url(bg.png) 0 0 repeat-x; line-height:12px; }
+.git_seen a { text-decoration:none; color:#4083C4; outline:none; }
+
+.git_seen div { width:166px; margin: 7px auto; }
+
+.git_seen h5 { text-indent:-5000px; width:102px; height:52px; float:left; margin:0; padding:0; float:left; background: url(githubBg.png) 0 0 no-repeat; }
+
+.git_seen a.repos { width:52px; height:52px; background: url(reposBg.png) 0 0 no-repeat; margin-left:12px; display:block; text-align:center; float:left; }
+.git_seen a:hover { background-position:top right; }
+.git_seen a.repos strong { font-size:35px; color:#ffffff; display:block; font-weight:bold; height:30px; line-height:35px; padding-top:5px; }
+.git_seen a.repos span { color:#1D3B59; font-weight:bold; display:block;  }
+
+.git_seen p { height:30px; margin:0; padding:8px 0 0; clear:both; line-height:30px; }
+
+.git_seen p a, .git_seen p a:visited { color:#4083C4; display:block; height:100%; }
+.git_seen p a:hover { }
+
+.git_seen p a em {  font-weight:normal; font-style:normal; }
+.git_seen p a:hover em { text-decoration:underline; font-weight:normal; font-style:normal; }
+
+/* left aligned */
+.git_seen_left div { margin:7px 6px 0 6px; float:left; }
+.git_seen_left p a span { color:#ffffff; text-align:center; background: url(repoBg.png) top left no-repeat; display:block; width:20px; height:20px; float:left; line-height:20px; margin:5px; }
+.git_seen_left p a:hover span { font-color:#ffffff; background-position:bottom left; }
+
+/* center aligned */
+.git_seen_center p a { text-align:center; }
+.git_seen_center p a strong, .git_seen_center p a:visited strong { background: url(repoBg.png) top left no-repeat; padding:4px 0 3px 1px; }
+.git_seen_center p a:hover strong { background-position:bottom left; }
+.git_seen_center p a span { color:#ffffff; margin-right:10px; margin-left:6px; }
+
+/* right aligned */
+.git_seen_right div { margin:7px 6px 0 6px; float:right; }
+.git_seen_right p a strong { float:right; margin-right:5px; }
+.git_seen_right p a span { color:#ffffff; text-align:center; background: url(repoBg.png) top left no-repeat; display:block; width:20px; height:20px; float:left; line-height:20px; margin:5px; }
+.git_seen_right p a:hover span { font-color:#ffffff; background-position:bottom left; }

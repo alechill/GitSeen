@@ -1,8 +1,9 @@
 var GitSeen = (function(){
 	
-	var _class = function(render_to_id, github_user_id){
+	var _class = function(render_to_id, github_user_id, alignment){
 		this.user_id = github_user_id;
 		this.els = [];
+		this.alignment = alignment || GitSeen.CENTER;
 		this.parentEl = document.getElementById(render_to_id);
 		this.loadScript('http://github.com/api/v2/json/repos/show/' + github_user_id + '?callback=GitSeen.instances.' + render_to_id + '.onJSON');
 	}
@@ -15,6 +16,7 @@ var GitSeen = (function(){
 		intervalId: null,
 		interval: 5000,
 		currentIndex: 0,
+		alignment: false,
 		
 		onJSON: function(json){
 			this.json = json;
@@ -27,7 +29,7 @@ var GitSeen = (function(){
 				return false;
 			}
 			this.el = document.createElement('div');
-			this.el.className = 'git_seen';
+			this.el.className = 'git_seen git_seen_' + this.alignment;
 			var container = document.createElement('div');
 			var heading = document.createElement('h5');
 			heading.appendChild( document.createTextNode('GitHub - Social coding') );
@@ -52,16 +54,17 @@ var GitSeen = (function(){
 				p.style.display = i ? 'none' : 'block';
 				p.className = i ? '' : 'current';
 				a = document.createElement('a');
-				n = document.createElement('span');
-				n.appendChild( document.createTextNode(i) );
 				s = document.createElement('strong');
-				t = document.createTextNode(r.name);
+				n = document.createElement('span');
+				n.appendChild( document.createTextNode(i+1) );
+				s.appendChild(n);
+				t = document.createElement('em');
+				t.appendChild(document.createTextNode(r.name));
+				s.appendChild(t);
+				a.appendChild(s);
 				a.title = r.description;
 				a.href = r.url;
 				a.onclick = externalLink;
-				s.appendChild(t);
-				a.appendChild(n);
-				a.appendChild(s);
 				p.appendChild(a);
 				this.el.appendChild(p);
 				this.els.push(p);
@@ -96,10 +99,16 @@ var GitSeen = (function(){
 		
 	}
 	
+	_class.instances = [];
+	
+	_class.CENTER = 'center';
+	_class.LEFT = 'left';
+	_class.RIGHT = 'right';
+	
 	var _onWindowLoad = function(){
 		for( var c, i = 0, l = GitSeen.config.length; i < l; i++ ){
 			c = GitSeen.config[i];
-			GitSeen.instances[c.render_to_id] = new GitSeen(c.render_to_id, c.github_user_id);
+			GitSeen.instances[c.render_to_id] = new GitSeen(c.render_to_id, c.github_user_id, c.alignment);
 		}
 	}
 	
@@ -114,8 +123,6 @@ var GitSeen = (function(){
 			_onWindowLoad();
 		}
 	}
-
-	_class.instances = [];
 	
 	return _class;
 	
