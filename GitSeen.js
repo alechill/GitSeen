@@ -3,7 +3,8 @@
  * 
  * http://github.com/alechill/GitSeen
  *
- * @author Alec Hill
+ * Copyright (c) 2010 Alec Hill ( http://alec-hill.com )
+ * GitSeen is licensed under the terms of the MIT License
  */
 var GitSeen = (function(){
 	
