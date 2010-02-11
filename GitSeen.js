@@ -1,3 +1,10 @@
+/**
+ * GitSeen - Git your repositories seen with a simple, stylish GitHub badge
+ * 
+ * http://github.com/alechill/GitSeen
+ *
+ * @author Alec Hill
+ */
 var GitSeen = (function(){
 	
 	var _class = function(render_to_id, github_user_id, alignment){
