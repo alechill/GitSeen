@@ -81,8 +81,8 @@
 		
 		<script type="text/javascript" language="javascript">
 			(function(){
-				var template = '<script type="text\/javascript" src="http:\/\/alechill.github.com\/gitseen\/src\/GitSeen.js"><\/script>\n';
-				template += '<link type="text\/css" rel="stylesheet" media="screen" href="http:\/\/alechill.github.com\/gitseen\/src\/GitSeen.css" \/>\n';
+				var template = '<script type="text\/javascript" src="http:\/\/alechill.github.com\/GitSeen\/src\/GitSeen.js"><\/script>\n';
+				template += '<link type="text\/css" rel="stylesheet" media="screen" href="http:\/\/alechill.github.com\/GitSeen\/src\/GitSeen.css" \/>\n';
 				template += '<script type="text\/javascript" language="javascript">\n\tGitSeen.config = [\n\t\t{render_to_id: "%render_to_id%", github_user_id: "%github_user_id%", alignment: GitSeen.%alignment%}\n\t];\n<\/script>';
 				var generator_form = document.getElementById('generatorForm');
 				var github_user_id_field = document.getElementById('gitHubUserIdField');
@@ -93,6 +93,12 @@
 				var generated_content = document.getElementById('generatedContent');
 				github_user_id_field.onfocus = render_to_id_field.onfocus = alignment_field.onfocus = function(){
 					generated_content.style.display = 'none';
+				}
+				source_code_field.onfocus = function(){
+					try {
+						var pageTracker = window.pageTracker;
+						pageTracker._trackEvent('Copied source code', alignment, github_user_id);
+					}catch(e){}
 				}
 				generator_form.onsubmit = function(){
 					var github_user_id = github_user_id_field.value;
@@ -107,7 +113,10 @@
 					}
 					generated_content.style.display = 'block';
 					GitSeen.instances.preview = new GitSeen('preview', github_user_id, GitSeen[alignment]);
-					// @TODO analytics
+					try {
+						var pageTracker = window.pageTracker;
+						pageTracker._trackEvent('Generated source code', alignment, github_user_id);
+					}catch(e){}
 					return false;
 				}
 			})();
@@ -120,5 +129,15 @@
 		</div>
 	
 	</div>
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("UA-2493379-3");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
 </body>
 </html>
