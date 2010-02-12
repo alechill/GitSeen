@@ -5,84 +5,120 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-	<title>alechill/GitSeen @ GitHub</title>
+	<title>GitSeen with a stylo GitHub badge</title>
+	<link type="text/css" rel="stylesheet" media="all" href="site-css/git-seen-site.css"/>
 	
-	<style type="text/css">
-		body {
-  		margin-top: 1.0em;
-  		background-color: #d50bb6;
-		  font-family: "Helvetica,Arial,FreeSans"; 
-  		color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-		h1 { font-size: 3.8em; color: #2af449; margin-bottom: 3px; }
-		h1 .small { font-size: 0.4em; }
-		h1 a { text-decoration: none }
-		h2 { font-size: 1.5em; color: #2af449; }
-    h3 { text-align: center; color: #2af449; }
-    a { color: #2af449; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-		pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-	</style>
-	
+	<script type="text/javascript" src="src/GitSeen.js"></script>
+	<link type="text/css" rel="stylesheet" media="screen" href="src/GitSeen.css" />
+	<script type="text/javascript">
+		GitSeen.config = [
+			{render_to_id: 'render_left', github_user_id: 'alechill', alignment: GitSeen.LEFT},
+			{render_to_id: 'render_center', github_user_id: 'alechill'},
+			{render_to_id: 'render_right', github_user_id: 'alechill', alignment: GitSeen.RIGHT}
+		];
+	</script>
 </head>
 
 <body>
-  <a href="http://github.com/alechill/GitSeen"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
-  
-  <div id="container">
-
-    <div class="download">
-      <a href="http://github.com/alechill/GitSeen/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/alechill/GitSeen/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
-      
-    <h1><a href="http://github.com/alechill/GitSeen">GitSeen</a> 
-      <span class="small">by <a href="http://github.com/alechill">alechill</a></span></h1>
-
-    <div class="description">
-      Git your repositories seen with a simple, stylish GitHub badge
-    </div>
-
-    <h2>Authors</h2>
-<p>alechill (alechilmail-web@yahoo.co.uk)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>Alec Hill (alechillmail-web@yahoo.co.uk)<br/>      </p>
-
-
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/alechill/GitSeen/zipball/master">zip</a> or
-      <a href="http://github.com/alechill/GitSeen/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/alechill/GitSeen</pre>
-    </p>
-      
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/alechill/GitSeen">alechill/GitSeen</a>
-    </div>
-    
-  </div>
-
-  <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-2493379-3");
-pageTracker._trackPageview();
-} catch(err) {}</script>
+	<div id="container">
+	
+		<h1>GitSeen</h1>
+		<h2>Git your repositories noticed!</h2>
+	
+		<div id="info">
+			<p>It goes without saying you&rsquo;re proud of your <a href="http://github.com" title="GitHub - Social coding">GitHub</a> repositories - let people know about them with a badge that shows them off.</p>
+			<p>GitSeen is a simple badge that rotates through your repos. There are various alignment options to suit your situation...</p>
+		</div>
+		
+		<h3>Examples</h3>
+		
+		<div id="examples">
+			<div id="render_left" class="badge_container">
+				<h4>Left aligned</h4>
+			</div>
+			<div id="render_center" class="badge_container">
+				<h4>Centre aligned</h4>
+			</div>
+			<div id="render_right" class="badge_container">
+				<h4>Right aligned</h4>
+			</div>
+		</div>
+		
+		<h3>Git your own!</h3>
+		
+		<form action="" method="post" id="generatorForm">
+			<p>
+				<label for="gitHubUserIdField">Your GitHub username:</label>
+				<input name="github_user_id_field" id="gitHubUserIdField" value="" type="text" />
+			</p>
+			<p>
+				<label for="renderToIdField">Id of element to render badge to:</label>
+				<input name="render_to_id_field" id="renderToIdField" value="" type="text" />
+			</p>
+			<p>
+				<label for="alignmentField">Alignment:</label>
+				<select name="alignment_field" id="alignmentField">
+					<option value="LEFT" class="selected">Left aligned</option>
+					<option value="CENTER">Centre aligned</option>
+					<option value="RIGHT">Right aligned</option>
+				</select>
+			</p>
+			<p class="submit">
+				<label>Generate:</label>
+				<input type="submit" value="Generate now!" />
+			</p>
+			<div id="generatedContent">
+				<textarea id="sourceCodeField" name="sourceCodeField" rows="10" cols="80"></textarea>
+				<div id="preview"></div>
+				<div id="instructions">
+					Copy the HTML code on the left and paste it in your webpage between the &lt;head&gt;&lt;/head&gt; tags.
+					<br />
+					<br />
+					You must also make sure there is an element with the id attribute you specified in the form above. The GitHub badge will be rendered to and automatically fill the width of this element.
+				</div>
+			</div>
+		</form>
+		
+		<script type="text/javascript" language="javascript">
+			(function(){
+				var template = '<script type="text\/javascript" src="http:\/\/alechill.github.com\/gitseen\/src\/GitSeen.js"><\/script>\n';
+				template += '<link type="text\/css" rel="stylesheet" media="screen" href="http:\/\/alechill.github.com\/gitseen\/src\/GitSeen.css" \/>\n';
+				template += '<script type="text\/javascript" language="javascript">\n\tGitSeen.config = [\n\t\t{render_to_id: "%render_to_id%", github_user_id: "%github_user_id%", alignment: GitSeen.%alignment%}\n\t];\n<\/script>';
+				var generator_form = document.getElementById('generatorForm');
+				var github_user_id_field = document.getElementById('gitHubUserIdField');
+				var render_to_id_field = document.getElementById('renderToIdField');
+				var alignment_field = document.getElementById('alignmentField');
+				var source_code_field = document.getElementById('sourceCodeField');
+				var preview = document.getElementById('preview');
+				var generated_content = document.getElementById('generatedContent');
+				github_user_id_field.onfocus = render_to_id_field.onfocus = alignment_field.onfocus = function(){
+					generated_content.style.display = 'none';
+				}
+				generator_form.onsubmit = function(){
+					var github_user_id = github_user_id_field.value;
+					var render_to_id = render_to_id_field.value.replace(/#/, '');
+					var alignment = alignment_field.options[alignment_field.selectedIndex].value;
+					var code = template.replace('%render_to_id%', render_to_id);
+					code = code.replace('%github_user_id%', github_user_id);
+					code = code.replace('%alignment%', alignment);
+					source_code_field.value = code;
+					while(preview.firstChild){
+						preview.removeChild(preview.firstChild);
+					}
+					generated_content.style.display = 'block';
+					GitSeen.instances.preview = new GitSeen('preview', github_user_id, GitSeen[alignment]);
+					// @TODO analytics
+					return false;
+				}
+			})();
+		</script>
+		
+		<div id="foot">
+			<p>
+				GitSeen is licensed under the MIT License. &copy; Copyright 2010 <a href="http://alec-hill.com" title="Visit my site">Alec Hill</a>
+			</p>
+		</div>
+	
+	</div>
 </body>
 </html>
