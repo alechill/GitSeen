@@ -1,0 +1,134 @@
+body {
+	font-family:helvetica,arial,sans-serif;
+	font-size:14px;
+}
+
+#container {
+	width:860px;
+	margin:0 auto;
+}
+
+#info {
+	background:#DDEAF3;
+	border:4px solid #CCCCCC;
+	padding:10px;
+	clear: left;
+}
+
+.badge_container {
+	width:260px;
+	margin:0 0 0 20px;
+	float:left;
+}
+
+h1 {
+	float:left;
+	margin: 20px 0;
+}
+
+h2 {
+	float:left;
+	margin:25px 10px;
+}
+
+h3 {
+	clear:both;
+	background:#F7F7F7;
+	border-color:#DDDDDD;
+	border-style:solid none;
+	border-width:1px 0;
+	margin-top:30px;
+	padding:10px;
+}
+
+h4 {
+	margin:0 0 10px;
+}
+
+a { 
+	text-decoration:none; 
+	color:#4083C4; 
+	outline:none;
+}
+
+a:hover { 
+	text-decoration:underline;
+}
+
+#generatedContent {	
+	display:none;
+}
+
+textarea {
+	border: 1px solid #cccccc;
+}
+
+textarea,
+#preview,
+#instructions {
+	width:395px;
+	height:200px;
+	margin:0 0 0 15px;
+	float:left;
+}
+
+#preview {
+	height:	100px;€
+}
+
+#instructions {
+	height:85px;
+	margin-top:15px;
+}
+
+h1,
+h3 {
+	color:#4083C4;
+	margin:20px 0;
+}
+
+
+#examples {
+	overflow:hidden;
+	margin:20px 0;
+}
+
+form {
+	background:#EDF2F6;
+	border:4px solid #CCCCCC;
+	padding:25px 10px;
+	overflow:hidden;
+}
+
+form p {
+	float:left;
+	margin:0 0 15px 15px;
+	width:217px;
+}
+
+form p.submit {
+	width:100px;
+}
+
+label {
+	display:block;
+	margin:0 0 5px 0;
+}
+
+input,
+select {
+	width:100%;
+}
+
+.submit label {
+	visibility:hidden;
+}
+
+#generatedContent {
+	clear:both;
+}
+
+#foot {
+	clear:both;
+	margin:20px 0;
+}
