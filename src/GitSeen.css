@@ -13,6 +13,7 @@
 .git_seen a { text-decoration:none; color:#4083C4; outline:none; border:0; }
 .git_seen div { width:166px; margin: 7px auto; }
 .git_seen h5 { text-indent:-5000px; width:102px; height:52px; float:left; margin:0; padding:0; float:left; background: url(img/githubBg.png) 0 0 no-repeat; }
+.git_seen h5 a { display:block; height:100%; width:100%; }
 .git_seen a.repos { width:52px; height:52px; background: url(img/reposBg.png) 0 0 no-repeat; margin-left:12px; display:block; text-align:center; float:left; }
 .git_seen a:hover { background-position:top right; }
 .git_seen a.repos strong { font-size:35px; color:#ffffff; display:block; font-weight:bold; height:30px; line-height:35px; padding-top:5px; }
