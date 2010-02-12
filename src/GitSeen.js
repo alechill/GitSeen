@@ -40,7 +40,11 @@ var GitSeen = (function(){
 			this.el.className = 'git_seen git_seen_' + this.alignment;
 			var container = document.createElement('div');
 			var heading = document.createElement('h5');
-			heading.appendChild( document.createTextNode('GitHub - Social coding') );
+			var link = document.createElement('a');
+			link.appendChild( document.createTextNode('GitHub - Social coding') );
+			link.href = 'http://alechill.github.com/GitSeen';
+			link.title = 'Git your own badge here!';
+			heading.appendChild( link );
 			container.appendChild(heading);
 			var indicator = document.createElement('a');
 			indicator.className = 'repos';
