@@ -1,10 +1,7 @@
 /**
- * GitSeen - Git your repositories seen with a simple, stylish GitHub badge
+ * GitSeen - Git your repositories seen with simple but stylish GitHub badge
  * 
- * http://github.com/alechill/GitSeen
- *
- * Copyright (c) 2010 Alec Hill ( http://alec-hill.com )
- * GitSeen is licensed under the terms of the MIT License
+ * @author Alec Hill
  */
 var GitSeen = (function(){
 	
@@ -13,7 +10,7 @@ var GitSeen = (function(){
 		this.els = [];
 		this.alignment = alignment || GitSeen.CENTER;
 		this.parentEl = document.getElementById(render_to_id);
-		this.loadScript('http://github.com/api/v2/json/repos/show/' + github_user_id + '?callback=GitSeen.instances.' + render_to_id + '.onJSON');
+		this.loadScript('https://api.github.com/users/' + github_user_id + '/repos?callback=GitSeen.instances.' + render_to_id + '.onJSON');
 	}
 	
 	_class.prototype = {
@@ -40,11 +37,7 @@ var GitSeen = (function(){
 			this.el.className = 'git_seen git_seen_' + this.alignment;
 			var container = document.createElement('div');
 			var heading = document.createElement('h5');
-			var link = document.createElement('a');
-			link.appendChild( document.createTextNode('GitHub - Social coding') );
-			link.href = 'http://alechill.github.com/GitSeen';
-			link.title = 'Git your own badge here!';
-			heading.appendChild( link );
+			heading.appendChild( document.createTextNode('GitHub - Social coding') );
 			container.appendChild(heading);
 			var indicator = document.createElement('a');
 			indicator.className = 'repos';
@@ -52,15 +45,15 @@ var GitSeen = (function(){
 			indicator.title = this.user_id + ' on GitHub';
 			indicator.onclick = externalLink;
 			var count = document.createElement('strong');
-			count.appendChild( document.createTextNode(this.json.repositories.length) );
+			count.appendChild( document.createTextNode(this.json.data.length) );
 			var repos = document.createElement('span');
 			repos.appendChild( document.createTextNode(' Repos '));
 			indicator.appendChild(count);
 			indicator.appendChild(repos);
 			container.appendChild(indicator);
 			this.el.appendChild(container);
-			for(var r, p, a, s, n, t, d, i = 0, l = this.json.repositories.length; i < l; i++ ){
-				r = this.json.repositories[i];
+			for(var r, p, a, s, n, t, d, i = 0, l = this.json.data.length; i < l; i++ ){
+				r = this.json.data[i];
 				if(r.private) continue;
 				p = document.createElement('p');
 				p.style.display = i ? 'none' : 'block';
